@@ -1,17 +1,25 @@
 :root {
-  --bg: #07101f;
-  --bg-soft: #0b1730;
-  --bg-card: rgba(255, 255, 255, 0.06);
-  --bg-card-strong: rgba(255, 255, 255, 0.09);
+  --bg-main: #163c89;
+  --bg-mid: #0d234a;
+  --bg-deep: #163878;
+
+  --bg-soft: #162f66;
+
+  --primary: #5a8cff;
+  --primary-soft: rgba(90, 140, 255, 0.2);
+
+  --secondary: #7fd8ff;
+
   --text: #eef3ff;
   --text-soft: #b5c0da;
+
   --line: rgba(255, 255, 255, 0.12);
-  --primary: #4a5cff;
-  --primary-soft: rgba(74, 92, 255, 0.18);
-  --secondary: #79d4ff;
+
   --shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+
   --radius: 20px;
   --radius-sm: 14px;
+
   --container: 1220px;
 }
 
@@ -29,8 +37,13 @@ body {
   font-family: "Inter", Arial, sans-serif;
   background:
     radial-gradient(circle at top left, rgba(74, 92, 255, 0.22), transparent 28%),
-    radial-gradient(circle at 85% 10%, rgba(121, 212, 255, 0.14), transparent 20%),
-    linear-gradient(180deg, #050b16 0%, #07101f 40%, #081326 100%);
+    radial-gradient(circle at 85% 10%, rgba(130, 210, 255, 0.16), transparent 20%),
+   linear-gradient(
+  180deg,
+  var(--bg-main) 0%,
+  var(--bg-mid) 40%,
+  var(--bg-deep) 100%
+);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
@@ -56,7 +69,7 @@ a {
   justify-content: space-between;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(5, 11, 22, 0.55);
+  background: rgba(15, 32, 64, 0.55);
   backdrop-filter: blur(18px);
   position: sticky;
   top: 16px;
@@ -136,7 +149,7 @@ a {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: rgba(74, 92, 255, 0.22);
+  background:rgba(90, 140, 255, 0.28);
   filter: blur(90px);
   top: 0;
   left: -70px;
