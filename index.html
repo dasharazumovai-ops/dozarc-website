@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="page-bg">
+    <canvas id="waveCanvas"></canvas>
+    <div class="bg-glow"></div>
+    <div class="bg-fade"></div>
+  </div>
+
   <div class="site-shell">
     <header class="site-header">
       <a href="#" class="logo">DOZARC</a>
@@ -40,9 +46,6 @@
           <div class="glow glow-one"></div>
           <div class="glow glow-two"></div>
           <div class="grid"></div>
-          <div class="floating-orb orb-one"></div>
-          <div class="floating-orb orb-two"></div>
-          <div class="floating-orb orb-three"></div>
         </div>
 
         <div class="hero-content">
@@ -78,10 +81,15 @@
         <div class="hero-visual">
           <div class="visual-frame">
             <div class="scan-line"></div>
-            <div class="visual-core"></div>
-            <div class="visual-ring ring-one"></div>
-            <div class="visual-ring ring-two"></div>
-            <div class="visual-ring ring-three"></div>
+
+            <div class="pyramid-3d">
+              <div class="pyramid-face face-back"></div>
+              <div class="pyramid-face face-left"></div>
+              <div class="pyramid-face face-right"></div>
+              <div class="pyramid-face face-front"></div>
+              <div class="pyramid-glow"></div>
+            </div>
+
             <div class="visual-label label-one">ROBOTICS</div>
             <div class="visual-label label-two">STORIES</div>
             <div class="visual-label label-three">MOBILE APP</div>
@@ -97,7 +105,7 @@
         <div class="intro-chip">Creative Learning</div>
       </section>
 
-      <section class="section about-section" id="about">
+      <section class="section about-section reveal" id="about">
         <div class="section-heading">
           <span class="section-kicker">About Dozarc</span>
           <h2>Built to spark curiosity and show what innovation can feel like.</h2>
@@ -132,7 +140,7 @@
         </div>
       </section>
 
-      <section class="section products-section" id="products">
+      <section class="section products-section reveal" id="products">
         <div class="section-heading">
           <span class="section-kicker">The universe of Arconavis</span>
           <h2>Interactive products designed to move beyond the shelf.</h2>
@@ -171,7 +179,7 @@
         </div>
       </section>
 
-      <section class="section experience-section" id="experience">
+      <section class="section experience-section reveal" id="experience">
         <div class="section-heading">
           <span class="section-kicker">Digital experience</span>
           <h2>Hardware, software and story working together.</h2>
@@ -207,7 +215,7 @@
         </div>
       </section>
 
-      <section class="section vision-section">
+      <section class="section vision-section reveal">
         <div class="vision-inner">
           <span class="section-kicker">Future-facing</span>
           <h2>A small world that hints at something much bigger.</h2>
@@ -220,7 +228,7 @@
         </div>
       </section>
 
-      <section class="section contact-section" id="contact">
+      <section class="section contact-section reveal" id="contact">
         <div class="section-heading">
           <span class="section-kicker">Contact</span>
           <h2>Let’s make the next version feel unforgettable.</h2>

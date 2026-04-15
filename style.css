@@ -1,5 +1,5 @@
 :root {
-  --bg-main: #163c89;
+  --bg-main: #113273;
   --bg-mid: #0d234a;
   --bg-deep: #163878;
 
@@ -35,29 +35,93 @@ html {
 
 body {
   font-family: "Inter", Arial, sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(74, 92, 255, 0.22), transparent 28%),
-    radial-gradient(circle at 85% 10%, rgba(130, 210, 255, 0.16), transparent 20%),
-   linear-gradient(
-  180deg,
-  var(--bg-main) 0%,
-  var(--bg-mid) 40%,
-  var(--bg-deep) 100%
-);
+  background: linear-gradient(180deg, #0b2f73 0%, #0a3d91 42%, #0a4aa8 100%);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
+#waveCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.75;
+  filter: blur(0.3px);
+}
+
+.wave {
+  animation: waveMove 10s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.bg-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow:
+    inset 120px 0 160px rgba(5, 18, 55, 0.82),
+    inset -120px 0 160px rgba(5, 18, 55, 0.82),
+    inset 0 60px 90px rgba(4, 18, 50, 0.22);
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(6, 25, 70, 0.75) 0%,
+      rgba(6, 25, 70, 0.45) 8%,
+      rgba(6, 25, 70, 0.25) 18%,
+      rgba(6, 25, 70, 0.04) 30%,
+      rgba(6, 25, 70, 0.04) 70%,
+      rgba(6, 25, 70, 0.25) 82%,
+      rgba(6, 25, 70, 0.45) 92%,
+      rgba(6, 25, 70, 0.75) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(4, 18, 50, 0.5) 0%,
+      rgba(4, 18, 50, 0.25) 12%,
+      transparent 45%
+    );
+}
 .site-shell {
   width: min(100%, 1600px);
   margin: 0 auto;
   position: relative;
+  z-index: 1;
+}
+
+.bg-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,0.10), transparent 26%),
+    radial-gradient(circle at 82% 14%, rgba(160,220,255,0.10), transparent 20%),
+    radial-gradient(circle at 50% 85%, rgba(255,255,255,0.06), transparent 32%);
+  opacity: 0.9;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .site-header {
@@ -69,7 +133,7 @@ a {
   justify-content: space-between;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(15, 32, 64, 0.55);
+  background: rgba(26, 49, 93, 0.55);
   backdrop-filter: blur(18px);
   position: sticky;
   top: 16px;
@@ -139,12 +203,6 @@ a {
   border-radius: 28px;
 }
 
-.glow,
-.grid,
-.floating-orb {
-  position: absolute;
-}
-
 .glow-one {
   width: 500px;
   height: 500px;
@@ -167,45 +225,6 @@ a {
   animation: drift 12s ease-in-out infinite alternate-reverse;
 }
 
-.grid {
-  inset: 6%;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: radial-gradient(circle at center, black 42%, transparent 88%);
-  opacity: 0.4;
-}
-
-.floating-orb {
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55), rgba(74,92,255,0.18), transparent 72%);
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-.orb-one {
-  width: 18px;
-  height: 18px;
-  top: 20%;
-  right: 38%;
-  animation: floatUp 7s ease-in-out infinite;
-}
-
-.orb-two {
-  width: 10px;
-  height: 10px;
-  bottom: 24%;
-  left: 50%;
-  animation: floatUp 9s ease-in-out infinite 1s;
-}
-
-.orb-three {
-  width: 14px;
-  height: 14px;
-  top: 58%;
-  right: 15%;
-  animation: floatUp 8s ease-in-out infinite 0.6s;
-}
 
 .hero-content,
 .hero-visual {
@@ -334,17 +353,110 @@ a {
   box-shadow: var(--shadow);
   overflow: hidden;
 }
+.pyramid-3d {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  transform: translate(-50%, -50%);
+  animation: pyramidRotate 18s linear infinite;
+  transform-style: preserve-3d;
+}
 
-.visual-core {
+.pyramid-face {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(
+    180deg,
+    rgba(170, 225, 255, 0.18),
+    rgba(90, 140, 255, 0.05)
+  );
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.04);
+}
+
+.face-back {
+  transform: scale(1.08) translateY(8px);
+  opacity: 0.22;
+  filter: blur(1px);
+}
+
+.face-left {
+  transform: perspective(500px) rotateY(22deg) rotateX(4deg) translateX(-18px);
+  opacity: 0.7;
+}
+
+.face-right {
+  transform: perspective(500px) rotateY(-22deg) rotateX(4deg) translateX(18px);
+  opacity: 0.82;
+}
+
+.face-front {
+  transform: scale(0.78) translateY(18px);
+  opacity: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(220, 245, 255, 0.34),
+    rgba(110, 170, 255, 0.08)
+  );
+  box-shadow: 0 0 35px rgba(120, 200, 255, 0.18);
+}
+
+.pyramid-glow {
+  position: absolute;
+  left: 50%;
+  top: 58%;
   width: 120px;
   height: 120px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95),
+    rgba(160, 220, 255, 0.6),
+    rgba(90, 140, 255, 0.18),
+    transparent 72%
+  );
+  filter: blur(8px);
+  animation: pyramidPulse 3.4s ease-in-out infinite;
+}
+
+@keyframes pyramidRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes pyramidPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.06);
+    opacity: 1;
+  }
+}
+
+.visual-core {
+  width: 140px;
+  height: 140px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(255,255,255,0.95), rgba(121,212,255,0.55), rgba(74,92,255,0.18) 70%, transparent 100%);
   filter: blur(2px);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  50% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
 }
 
 .visual-ring {
@@ -394,9 +506,9 @@ a {
   backdrop-filter: blur(12px);
 }
 
-.label-one { top: 18%; left: 8%; }
-.label-two { bottom: 16%; left: 14%; }
-.label-three { top: 24%; right: 8%; }
+.label-one { top: 22%; left: 10%; }
+.label-two { bottom: 14%; left: 18%; }
+.label-three { top: 28%; right: 8%; }
 
 .intro-strip,
 .section,
@@ -454,6 +566,7 @@ a {
 .contact-card {
   border: 1px solid var(--line);
   background: rgba(255,255,255,0.045);
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 26px;
   box-shadow: var(--shadow);
@@ -489,6 +602,37 @@ a {
 .product-card {
   min-height: 280px;
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+}
+.product-card h3,
+.product-card p,
+.product-card .product-badge {
+  transform: translateZ(20px);
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -120%;
+  width: 70%;
+  height: 140%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba (255, 255, 255, 0.18),
+    transparent
+  );
+  transform: rotate (12deg);
+  transition: left 0.8 ease;
+}
+
+.product-card:hover::before {
+  left: 140%;
 }
 
 .product-card:hover,
@@ -497,6 +641,10 @@ a {
   transform: translateY(-4px);
   border-color: rgba(121,212,255,0.24);
   background: rgba(255,255,255,0.065);
+}
+.product-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(90, 140, 255, 0.25);
 }
 
 .featured {
@@ -591,16 +739,6 @@ a {
   50% { transform: translateY(-16px); opacity: 1; }
 }
 
-@keyframes spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes spinReverse {
-  from { transform: translate(-50%, -50%) rotate(360deg); }
-  to { transform: translate(-50%, -50%) rotate(0deg); }
-}
-
 @keyframes scan {
   0% { transform: translateY(-100%); opacity: 0; }
   20% { opacity: 1; }
@@ -680,4 +818,14 @@ a {
   .contact-card {
     padding: 22px;
   }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
