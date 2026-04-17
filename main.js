@@ -112,9 +112,9 @@ if (canvas) {
       tilt: 0.05
     }
   ];
-
+  
   function resizeCanvas() {
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
     width = window.innerWidth;
     height = window.innerHeight;
 
@@ -178,7 +178,7 @@ if (canvas) {
           Math.cos(y * layer.frequency * 0.55 - time * layer.speed * 700 + i * 0.28) *
           (layer.amplitude * 0.45);
 
-        const drift = y * layer.tilt;
+        const drift = (y / height) * 300 * layer.tilt;
         const x = baseX + wave1 + wave2 + drift;
 
         if (y === -60) {
@@ -221,17 +221,19 @@ if (canvas) {
     }
   }
 
-  function drawFrame() {
-    ctx.clearRect(0, 0, width, height);
+  let lastTimestamp = 0;
 
-    time += 0.25;
+function drawFrame() {
+  ctx.clearRect(0, 0, width, height);
 
-    for (let i = 0; i < layers.length; i++) {
-      drawVerticalWaveLayer(layers[i], i);
-    }
+  time += 0.25;
 
-    animationFrameId = requestAnimationFrame(drawFrame);
+  for (let i = 0; i < layers.length; i++) {
+    drawVerticalWaveLayer(layers[i], i);
   }
+
+  animationFrameId = requestAnimationFrame(drawFrame);
+}
 
   resizeCanvas();
   drawFrame();
