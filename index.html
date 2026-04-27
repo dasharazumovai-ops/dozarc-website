@@ -6,7 +6,7 @@
   <title>Dozarc Innovation</title>
   <meta
     name="description"
-    content="Dozarc develops intelligent robotics and STEM products that inspire curiosity, creativity and real-world innovation."
+    content="Dozarc develops products that blend technology and storytelling. What begins as robots, apps and science fiction worlds for younger audiences is designed as a foundation for much larger systems in intelligent robotics with dozens of applications."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,9 +17,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="scroll-progress"></div>
+
+  <div class="cursor-ring"></div>
+  <div class="cursor-dot"></div>
+
   <div class="page-bg">
     <canvas id="waveCanvas"></canvas>
-    <div class="bg-glow"></div>
     <div class="bg-fade"></div>
   </div>
 
@@ -42,24 +46,16 @@
 
     <main>
       <section class="hero">
-        <div class="hero-bg">
-          <div class="glow glow-one"></div>
-          <div class="glow glow-two"></div>
-          <div class="grid"></div>
-        </div>
-
         <div class="hero-content">
           <div class="eyebrow">Interactive robotics for a new generation</div>
           <h1>Where innovation meets imagination.</h1>
           <p>
-            A more cinematic, immersive home for Dozarc and Arconavis, designed
-            to feel exciting for young audiences while still looking polished,
-            intelligent and future-facing.
+           Dozarc Innovation creates a new category of intelligent robots. What looks like a toy is designed as an entry point into real engineering, modular construction and immersive storytelling. Every piece is built to move beyond play and open the door to larger technological possibilities.
           </p>
 
           <div class="hero-actions">
-            <a href="#products" class="btn btn-primary">Explore the world</a>
-            <a href="#about" class="btn btn-secondary">Discover Dozarc</a>
+            <a href="#products" class="btn btn-primary">Discover Acronavis</a>
+            <a href="#about" class="btn btn-secondary">More about Dozarc</a>
           </div>
 
           <div class="hero-stats">
@@ -80,15 +76,8 @@
 
         <div class="hero-visual">
           <div class="visual-frame">
+            <canvas class="hero-canvas"></canvas>
             <div class="scan-line"></div>
-
-            <div class="pyramid-3d">
-              <div class="pyramid-face face-back"></div>
-              <div class="pyramid-face face-left"></div>
-              <div class="pyramid-face face-right"></div>
-              <div class="pyramid-face face-front"></div>
-              <div class="pyramid-glow"></div>
-            </div>
 
             <div class="visual-label label-one">ROBOTICS</div>
             <div class="visual-label label-two">STORIES</div>
@@ -97,7 +86,7 @@
         </div>
       </section>
 
-      <section class="intro-strip">
+      <section class="intro-strip stagger">
         <div class="intro-chip">Robotics</div>
         <div class="intro-chip">Software</div>
         <div class="intro-chip">STEM Play</div>
@@ -107,34 +96,29 @@
 
       <section class="section about-section reveal" id="about">
         <div class="section-heading">
-          <span class="section-kicker">About Dozarc</span>
+          <span class="section-kicker">About Acronavis</span>
           <h2>Built to spark curiosity and show what innovation can feel like.</h2>
         </div>
 
-        <div class="about-grid">
+        <div class="about-grid stagger">
           <div class="about-card about-card-large">
             <h3>From product to possibility</h3>
             <p>
-              This concept homepage gives Dozarc a much more premium digital
-              presence while staying understandable, playful and welcoming. The
-              goal is to make the brand feel bigger, more memorable and more
-              alive.
+             Dozarc Innovation creates a new category of intelligent robots. What looks like a toy is designed as an entry point into real engineering, modular construction and immersive storytelling. Every piece is built to move beyond play and open the door to larger technological possibilities.
             </p>
           </div>
 
           <div class="about-card">
             <h3>Real technology</h3>
             <p>
-              The experience balances robotics, software and educational
-              storytelling without becoming too corporate or too technical.
+              Our products are autonomus self propulsion systems designed to feel simple and intuitive. Built from 111 components and connected through a mobile app, they bring together hardware, software and interaction in a way that can grow far beyond the initial experience.
             </p>
           </div>
 
           <div class="about-card">
             <h3>Made to stand out</h3>
             <p>
-              Layered visuals, motion, glow effects and structured sections make
-              the site feel unique while still staying easy to navigate.
+              Co-designed with psychologists and educators, every Dozarc product balances hands-on building, experimentation and genuine learning. Dozarc introduces a fully developed science fiction universe, creating a world users can explore, expand and grow with over time.
             </p>
           </div>
         </div>
@@ -146,32 +130,30 @@
           <h2>Interactive products designed to move beyond the shelf.</h2>
         </div>
 
-        <div class="product-grid">
+        <div class="product-grid stagger">
           <article class="product-card featured">
+            <img src="images/image1.png" alt="Arconavis Robot" class="product-img" />
             <div class="product-badge">10+</div>
-            <h3>The constructor that won’t just sit on the shelf</h3>
-            <p>
-              A flagship interactive robot experience with app-based control,
-              construction, movement and discovery built into one product.
+            <h3>The constructor that won&rsquo;t just sit on the shelf</h3>
+            <p>A 111-part robot controlled via mobile app. Build it, program it, explore it. Designed to develop engineering skills, abstract thinking and a genuine love of technology.
             </p>
             <a href="#" class="text-link">Learn more</a>
           </article>
 
           <article class="product-card">
+            <img src="images/image2.png" alt="Programmable Constructor" class="product-img product-img--blur" />
             <div class="product-badge">14+</div>
             <h3>Programmable constructor</h3>
-            <p>
-              A concept block for an older audience, positioned around coding,
-              progression and advanced creative play.
+            <p> A concept block for an older audience. A deeper, code-first experience built for older minds ready to dive into the world of programming through creative play.
             </p>
             <span class="coming-soon">Coming soon</span>
           </article>
 
           <article class="product-card">
+            <img src="images/image3.png" alt="STEM Nightlight" class="product-img product-img--blur" />
             <div class="product-badge">6+</div>
             <h3>STEM for younger explorers</h3>
-            <p>
-              A softer entry point into the world, combining learning,
+            <p> A glowing nightlight that tells science fiction stories. A first step into the world of Arconavis, designed for curious younger minds.A softer entry point into the world, combining learning,
               storytelling and curiosity-led interaction.
             </p>
             <span class="coming-soon">Coming soon</span>
@@ -182,36 +164,37 @@
       <section class="section experience-section reveal" id="experience">
         <div class="section-heading">
           <span class="section-kicker">Digital experience</span>
-          <h2>Hardware, software and story working together.</h2>
+          <h2>Hardware, software and world-building working together.</h2>
         </div>
 
-        <div class="experience-layout">
+        <div class="experience-layout stagger">
           <div class="experience-panel">
             <div class="panel-topline">Mobile app</div>
             <ul class="feature-list">
               <li>Ease of operation</li>
-              <li>Functionality</li>
-              <li>New content updates</li>
-              <li>Library of stories and tasks</li>
+              <li>A growing library of stories and tasks</li>
+              <li>New content drops</li>
+              <li>Functional on-hands learning</li>
             </ul>
           </div>
 
           <div class="experience-panel accent">
             <div class="panel-topline">Immersive universe</div>
-            <p>
-              The visual language hints at a bigger world, letting the website
-              feel like an entry point into a wider story rather than a flat
-              product brochure.
-            </p>
+            <p>Arconavis is a fragment of Septimum: a seven-dimensional world of unknown civilisations, wondrous laws and a looming threat only the explorer can uncover.</p>
           </div>
 
           <div class="experience-panel">
             <div class="panel-topline">Design opportunity</div>
-            <p>
-              This section can later become animated with scroll-triggered
-              reveals, app mockups, motion trails and product interactions.
-            </p>
+            <p>Every product is a doorway. The more you build, the deeper the story goes, and the bigger the world gets.</p>
           </div>
+        </div>
+      </section>
+
+      <section class="section pricing-section reveal">
+        <div class="pricing-card">
+          <p class="pricing-tagline">Give your child the opportunity to immerse themselves in a world of innovation.</p>
+          <div class="pricing-amount">$99.99</div>
+          <button class="btn btn-primary pricing-btn" disabled>Buy Now</button>
         </div>
       </section>
 
@@ -219,32 +202,48 @@
         <div class="vision-inner">
           <span class="section-kicker">Future-facing</span>
           <h2>A small world that hints at something much bigger.</h2>
-          <p>
-            This design direction lets Dozarc feel imaginative and family-facing
-            on the surface, while quietly suggesting stronger innovation,
-            scalability and long-term ambition underneath.
-          </p>
+          <p>Arconavis introduces our ideas through consumer products, while the wider company focuses on developing technology for much larger applications.</p>
           <a href="#contact" class="btn btn-primary">Get in touch</a>
+        </div>
+      </section>
+
+      <section class="section video-section reveal">
+        <div class="section-heading">
+          <span class="section-kicker">See it in action</span>
+          <h2>Watch Arconavis come to life.</h2>
+        </div>
+
+        <div class="video-frame">
+          <div class="video-scanline"></div>
+          <div class="video-corner corner-tl"></div>
+          <div class="video-corner corner-tr"></div>
+          <div class="video-corner corner-bl"></div>
+          <div class="video-corner corner-br"></div>
+          <video class="video-el" src="images/arconavis.mp4" controls playsinline></video>
         </div>
       </section>
 
       <section class="section contact-section reveal" id="contact">
         <div class="section-heading">
           <span class="section-kicker">Contact</span>
-          <h2>Let’s make the next version feel unforgettable.</h2>
+          <h2>Let&rsquo;s build something worth remembering.</h2>
         </div>
 
         <div class="contact-card">
-          <p>Email: <a href="mailto:hello@dozarc.com">hello@dozarc.com</a></p>
-          <p>
-            Next step: once you like this visual direction, I’ll help you turn
-            it into the full multi-section site and then refine the wording.
-          </p>
+          <p>Email: <a href="mailto:Info@dozarc.com">Info@dozarc.com</a></p>
+          <p>Interested in Dozarc, Arconavis or what comes next?</p>
         </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <p>© Dozarc Innovation FZCO. All rights reserved.</p>
+    </footer>
+
   </div>
 
+</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
