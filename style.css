@@ -899,6 +899,12 @@ a {
   display: block;
 }
 
+@media (max-width: 760px) {
+  .product-img {
+    max-height: 200px;
+  }
+}
+
 .product-img--blur {
   filter: blur(4px);
   opacity: 0.55;
