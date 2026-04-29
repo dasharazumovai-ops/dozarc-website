@@ -1,0 +1,12 @@
+domain_name = "dozarc.com"
+
+alternate_domain_names = [
+  "www.dozarc.com",
+]
+
+deploy_cloudfront = false
+
+aws_region = "eu-central-1"
+
+# Optional. S3 bucket names are globally unique.
+# bucket_name = "example-com-static-website"
