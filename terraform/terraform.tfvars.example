@@ -6,5 +6,7 @@ alternate_domain_names = [
 
 deploy_cloudfront = false
 
+aws_region = "eu-central-1"
+
 # Optional. S3 bucket names are globally unique.
 # bucket_name = "example-com-static-website"
